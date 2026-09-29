@@ -1,4 +1,13 @@
 import os
+import sys
+
+# Make shared modules importable no matter where the script is run from.
+_REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+for _d in ("General", "Ray Tracing/Code_RayTracing"):
+    _p = os.path.join(_REPO_ROOT, *_d.split('/'))
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
+
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
@@ -6,7 +15,7 @@ import matplotlib.pyplot as plt
 
 from fdfd import simulate_schwarzschild, simulate_kerr_newman
 from geodesics import schwarzschild_geodesic_xy, kerr_newman_geodesic_xy
-from ray_tracing import build_schwarzschild_annuli, build_kn_annuli
+from ray_tracing_snell import build_schwarzschild_annuli, build_kn_annuli
 from cases import SCHWARZSCHILD_CASES, KERR_NEWMAN_CASES
 
 

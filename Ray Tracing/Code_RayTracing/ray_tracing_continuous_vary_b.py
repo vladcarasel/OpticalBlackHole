@@ -1,3 +1,13 @@
+import os
+import sys
+
+# Make shared modules importable no matter where the script is run from.
+_REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+for _d in ("General",):
+    _p = os.path.join(_REPO_ROOT, *_d.split('/'))
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
+
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Circle
@@ -5,7 +15,7 @@ import warnings
 from matplotlib.colors import Normalize
 
 
-from other_methods.Kerr_Newman import (
+from Kerr_Newman import (
     refractive_index_kn_continuous,
     kerr_newman_radius,
     kerr_newman_photon_sphere,

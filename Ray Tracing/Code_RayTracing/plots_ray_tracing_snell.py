@@ -1,6 +1,15 @@
 from __future__ import annotations
 
 import os
+import sys
+
+# Make shared modules importable no matter where the script is run from.
+_REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+for _d in ("General",):
+    _p = os.path.join(_REPO_ROOT, *_d.split('/'))
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
+
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
@@ -8,7 +17,7 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import Normalize, LinearSegmentedColormap
 
 from geodesics import schwarzschild_geodesic
-from ray_tracing import ray_trace, ray_trace_with_outgoing
+from ray_tracing_snell import ray_trace, ray_trace_with_outgoing
 from annuli import annulus_edges_with_half_ends, sample_piecewise_constant
 from Schwarzchild import refractive_index_schwarzschild
 from constants import P0

@@ -1,4 +1,4 @@
-from plots_ray_tracing import make_figure_6, make_figure_6_full
+from plots_ray_tracing_snell import make_figure_6, make_figure_6_full
 
 
 def main():

@@ -1,3 +1,13 @@
+import os
+import sys
+
+# Make shared modules importable no matter where the script is run from.
+_REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+for _d in ("General", "Ray Tracing/Code_RayTracing"):
+    _p = os.path.join(_REPO_ROOT, *_d.split('/'))
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
+
 import numpy as np
 from scipy import sparse
 from scipy.sparse.linalg import spsolve
@@ -295,7 +305,7 @@ def simulate_schwarzschild(b_inf, P_min=2.0, P0=6.0, n_annuli=16,
                             wavelength=0.5, M=2.5, resolution=15,
                             N_pml=12):
     
-    from ray_tracing import build_schwarzschild_annuli#returns the edges and n_values for the annular structure of the optical Schwarzschild black hole.
+    from ray_tracing_snell import build_schwarzschild_annuli#returns the edges and n_values for the annular structure of the optical Schwarzschild black hole.
 
     # Physical dimensions
     R0 = P0 * M       # outer radius in um
@@ -336,7 +346,7 @@ def simulate_kerr_newman(a, rho_Q, b_inf, ell_sign, P_min, P0=6.0,
                           resolution=15, N_pml=12):
 
 
-    from ray_tracing import build_kn_annuli#returns the edges and n_values for the annular structure of the optical Kerr-Newman black hole.
+    from ray_tracing_snell import build_kn_annuli#returns the edges and n_values for the annular structure of the optical Kerr-Newman black hole.
 
     R0 = P0 * M
     L = 60 * wavelength
