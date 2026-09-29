@@ -28,7 +28,7 @@ def sample_piecewise_constant(index_function, edges, *args, **kwargs):
 
 
 def delta_hat(P, a, rho_Q):
-    """Eq. (17): $$\hat{\Delta} = P^2 - 2P + a^2 + \rho_Q^2$$"""
+    r"""Eq. (17): $$\hat{\Delta} = P^2 - 2P + a^2 + \rho_Q^2$$"""
     P = np.asarray(P, dtype=float)
     return P**2 - 2.0 * P + a**2 + rho_Q**2
 
@@ -61,7 +61,7 @@ def b_hat_kn_exact(P, a, rho_Q, b_inf, ell_sign=+1):
     return out
 
 def refractive_index_kn_continuous(P, a, rho_Q, b_inf, ell_sign=+1, P0=6.0, n0=1.0):
-    """Eq. (23): $n(P) \propto 1 / \hat{b}(P)$ normalized at P0."""
+    r"""Eq. (23): $n(P) \propto 1 / \hat{b}(P)$ normalized at P0."""
     P = np.asarray(P, dtype=float)
     bP = b_hat_kn_exact(P, a, rho_Q, b_inf, ell_sign)
     bP0 = b_hat_kn_exact(np.array([P0]), a, rho_Q, b_inf, ell_sign)[0]

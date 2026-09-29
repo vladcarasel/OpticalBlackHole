@@ -17,9 +17,11 @@ Requires Python 3.9 or newer.
 git clone https://github.com/vladcarasel/OpticalBlackHole.git
 cd OpticalBlackHole
 python3 -m venv .venv
-source .venv/bin/activate
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
+
+On Windows, use `python` instead of `python3`, and run the `cd` and `python` parts of each command below as two separate commands.
 
 ## How to run
 

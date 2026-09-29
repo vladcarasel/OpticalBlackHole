@@ -40,7 +40,7 @@ def sample_piecewise_constant(index_function, edges, *args, **kwargs):
 
 
 def refractive_index_schwarzschild(P, b_inf, n_at_P0=1.0, P0=DEFAULT_P0):
-    """
+    r"""
     Schwarzschild scalar refractive index:
     $$n(P) \propto \sqrt{b_{\infty}^{-2} + 2 P^{-3}}$$
     """
