@@ -14,8 +14,8 @@ This repository contains numerical tools and generated results for optical analo
 Requires Python 3.9 or newer.
 
 ```bash
-git clone https://github.com/edomarchipolytechnique/Optical-Black-Hole.git
-cd Optical-Black-Hole
+git clone https://github.com/vladcarasel/OpticalBlackHole.git
+cd OpticalBlackHole
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
